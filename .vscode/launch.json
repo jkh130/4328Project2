@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/FinalSemesterResources/Operating Systems/Project 2",
-      "program": "e:/FinalSemesterResources/Operating Systems/Project 2/build/Debug/outDebug",
+      "cwd": "e:/FinalSemesterResources/Operating Systems/Project2Github/4328Project2",
+      "program": "e:/FinalSemesterResources/Operating Systems/Project2Github/4328Project2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
