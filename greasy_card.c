@@ -93,7 +93,6 @@ void initializeDeck(Card *deck, int total_cards)
 
 void shuffleDeck(Card *deck, int size)
 {
-    srand(time(NULL));
 
     for (int i = size - 1; i > 0; i--)
     {
@@ -206,7 +205,6 @@ void printPlayerHand(Player *player)
 
 void handlePlayerTurn(Player *player)
 {
-    srand(time(NULL));
 
     if (round_winner == -1)
     {
@@ -257,15 +255,6 @@ void handlePlayerTurn(Player *player)
 
 void handleChips(Player *player)
 {
-    struct timeval time;
-    gettimeofday(&time, NULL);
-
-    // Combine seconds and microseconds for a more unique seed
-    unsigned long seed = time.tv_sec * 1000000 + time.tv_usec;
-
-    // Seed the random number generator
-    srand(seed);
-
     int randChips = (rand() % 5) + 1;
 
     if (numChips <= randChips)
@@ -405,7 +394,7 @@ void *player_thread(void *arg)
 
 int main()
 {
-    srand(time(NULL));
+    srand(52);
     deck = (Card *)malloc(sizeof(Card) * total_cards);
 
     if (deck == NULL)
