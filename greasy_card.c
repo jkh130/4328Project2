@@ -28,7 +28,7 @@ int turn_counter = 0;
 int round_number = 1;
 int dealer_selected;
 int dealer;
-int total_cards;       // New variable to hold the total number of cards
+int total_cards = 52;  // New variable to hold the total number of cards
 int round_winner = -1; // To track the round winner, initialized to -1
 
 typedef struct
@@ -127,19 +127,38 @@ Card takeCardFromTop(Card *deck, int *size)
     return card;
 }
 
+void addCardToDeckBack(Card *deck, int *total_cards, Card new_card)
+{
+    // Check if the deck is full
+    if (*total_cards >= 52)
+    {
+        // Handle the case where the deck is already full
+        printf("Deck is full. Cannot add a new card.\n");
+        return;
+    }
+
+    // Shift all cards to the right by 1 position
+    for (int i = *total_cards; i > 0; i--)
+    {
+        deck[i] = deck[i - 1];
+    }
+
+    // Add the new card at the 0th index
+    deck[0] = new_card;
+
+    // Increase the size of the deck
+    *total_cards += 1;
+}
+
 void dealerWork(int dealer_id, Player players[], int num_players)
 {
     // (1) Shuffle deck of cards
     printf("PLAYER %d: shuffling cards \n", dealer_id);
     shuffleDeck(deck, total_cards);
 
-    sleep(1);
-
     // (2) Choose and display greasy card
     greasy_card = takeCardFromTop(deck, &total_cards);
     printf("PLAYER %d: Greasy card is %s of %s\n", dealer_id, greasy_card.value, greasy_card.suit);
-
-    sleep(1);
 
     // (3) Deal a single card to each player and display player ID
     for (int i = 0; i < num_players; i++)
@@ -159,7 +178,6 @@ void dealerWork(int dealer_id, Player players[], int num_players)
     if (dealer_id == 1)
     {
         printf("PLAYER %d: opening first bag of chips \n", dealer_id);
-        sleep(1);
     }
 }
 
@@ -182,24 +200,6 @@ void printPlayerHand(Player *player)
 void handlePlayerTurn(Player *player)
 {
     srand(time(NULL));
-
-    // if (round_winner == -1)
-    // {
-    //     // Check for matching card
-    //     int hasMatchingCard = 0;
-    //     for (int i = 0; i < MAX_HAND_SIZE; i++)
-    //     {
-    //         // if (strcmp(player->hand[i].suit, greasy_card.suit) == 0 ||
-    //         //     strcmp(player->hand[i].value, greasy_card.value) == 0)
-    //         // {
-    //         //     hasMatchingCard = 1;
-    //         //     round_winner = player->id;
-    //         //     break;
-    //         // }
-
-    //         // "Jack", "Queen", "King", "Ace"}
-
-    //     }
 
     if (round_winner == -1)
     {
@@ -232,6 +232,8 @@ void handlePlayerTurn(Player *player)
         {
             int randomIndex = rand() % MAX_HAND_SIZE;
             printf("PLAYER %d: discards %s of %s at random\n", player->id, player->hand[randomIndex].value, player->hand[randomIndex].suit);
+            // add card to back of deck and make player hand empty
+            addCardToDeckBack(deck, &total_cards, player->hand[randomIndex]);
             player->hand[randomIndex] = createEmptyCard();
         }
     }
@@ -239,6 +241,9 @@ void handlePlayerTurn(Player *player)
     {
         int randomIndex = rand() % MAX_HAND_SIZE;
         printf("PLAYER %d: discards %s of %s at random\n", player->id, player->hand[randomIndex].value, player->hand[randomIndex].suit);
+
+        // add card to back of deck and make player hand empty
+        addCardToDeckBack(deck, &total_cards, player->hand[randomIndex]);
         player->hand[randomIndex] = createEmptyCard();
     }
 }
@@ -313,7 +318,15 @@ void *player_thread(void *arg)
         // Wait for all threads to complete
         pthread_barrier_wait(&init_barrier);
 
-        sleep(1);
+        if (player->id == round_number)
+        {
+            printf("PLAYER %d: Placing greasy back in the deck\n", player->id);
+            addCardToDeckBack(deck, &total_cards, greasy_card);
+        }
+
+        // Wait for all threads to complete
+        pthread_barrier_wait(&init_barrier);
+
         pthread_mutex_lock(&mutex);
         turn_counter++;
 
@@ -323,6 +336,7 @@ void *player_thread(void *arg)
             round_winner = -1;
             round_number++;
             turn_counter = 0;
+
             pthread_cond_broadcast(&conditional);
             pthread_mutex_unlock(&mutex);
         }
@@ -341,8 +355,6 @@ void *player_thread(void *arg)
 
 int main()
 {
-
-    total_cards = 104;
     deck = (Card *)malloc(sizeof(Card) * total_cards);
 
     if (deck == NULL)
