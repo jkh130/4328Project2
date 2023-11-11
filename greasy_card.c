@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <sys/time.h>
 
 #define MAX_ROUNDS 6
 #define MAX_HAND_SIZE 2
@@ -20,6 +21,9 @@ pthread_cond_t condDealer = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t mutexPlayerTurn = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t condPlayerTurn = PTHREAD_COND_INITIALIZER;
 
+// mutex and conditional for chip eating
+pthread_mutex_t mutexChip = PTHREAD_MUTEX_INITIALIZER;
+
 // barrier for all threads
 pthread_barrier_t init_barrier;
 
@@ -30,6 +34,7 @@ int dealer_selected;
 int dealer;
 int total_cards = 52;  // New variable to hold the total number of cards
 int round_winner = -1; // To track the round winner, initialized to -1
+int numChips;
 
 typedef struct
 {
@@ -178,6 +183,8 @@ void dealerWork(int dealer_id, Player players[], int num_players)
     if (dealer_id == 1)
     {
         printf("PLAYER %d: opening first bag of chips \n", dealer_id);
+        numChips = 20;
+        printf("BAG: %d chips left\n", numChips);
     }
 }
 
@@ -248,6 +255,43 @@ void handlePlayerTurn(Player *player)
     }
 }
 
+void handleChips(Player *player)
+{
+    struct timeval time;
+    gettimeofday(&time, NULL);
+
+    // Combine seconds and microseconds for a more unique seed
+    unsigned long seed = time.tv_sec * 1000000 + time.tv_usec;
+
+    // Seed the random number generator
+    srand(seed);
+
+    int randChips = (rand() % 5) + 1;
+
+    if (numChips <= randChips)
+    {
+        printf("PLAYER %d: Eats %d chips\n", player->id, numChips);
+
+        randChips = randChips - numChips;
+
+        printf("PLAYER %d: Opens a new bag of chips\n", player->id);
+        numChips = 20;
+        if (randChips != 0)
+        {
+            printf("PLAYER %d: Eats %d chips\n", player->id, (numChips - randChips));
+            numChips = numChips - randChips;
+        }
+
+        printf("BAG: %d Chips left\n", (numChips - randChips));
+    }
+    else
+    {
+        printf("PLAYER %d: Eats %d chips\n", player->id, randChips);
+        numChips = numChips - randChips;
+        printf("BAG: %d Chips left\n", numChips);
+    }
+}
+
 void *player_thread(void *arg)
 {
     Player *player = (Player *)arg;
@@ -291,6 +335,11 @@ void *player_thread(void *arg)
         // Signal that the player's turn is complete
         pthread_cond_signal(&condPlayerTurn);
         pthread_mutex_unlock(&mutexPlayerTurn);
+
+        // eat chips
+        pthread_mutex_lock(&mutexChip);
+        handleChips(player);
+        pthread_mutex_unlock(&mutexChip);
 
         // Wait for all threads to complete
         pthread_barrier_wait(&init_barrier);
@@ -336,6 +385,7 @@ void *player_thread(void *arg)
             round_winner = -1;
             round_number++;
             turn_counter = 0;
+            sleep(2);
 
             pthread_cond_broadcast(&conditional);
             pthread_mutex_unlock(&mutex);
@@ -355,6 +405,7 @@ void *player_thread(void *arg)
 
 int main()
 {
+    srand(time(NULL));
     deck = (Card *)malloc(sizeof(Card) * total_cards);
 
     if (deck == NULL)
