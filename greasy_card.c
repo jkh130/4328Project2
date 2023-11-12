@@ -35,6 +35,7 @@ int total_cards = 52;  // New variable to hold the total number of cards
 int round_winner = -1; // To track the round winner, initialized to -1
 int numChips;
 int seed;
+int chips_max;
 
 typedef struct
 {
@@ -182,7 +183,7 @@ void dealerWork(int dealer_id, Player players[], int num_players)
     if (dealer_id == 1)
     {
         printf("PLAYER %d: opening first bag of chips \n", dealer_id);
-        numChips = 20;
+        numChips = chips_max;
         printf("BAG: %d chips left\n", numChips);
     }
 }
@@ -427,7 +428,7 @@ int main(int argc, char *argv[])
         free(deck);
         return 1;
     }
-    numChips = atoi(argv[3]);
+    chips_max = atoi(argv[3]);
 
     srand(seed);
 
