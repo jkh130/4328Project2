@@ -6,7 +6,6 @@
 #include <string.h>
 #include <sys/time.h>
 
-#define MAX_ROUNDS 6
 #define MAX_HAND_SIZE 2
 
 // mutex and conditional for handling round end
@@ -27,7 +26,7 @@ pthread_mutex_t mutexChip = PTHREAD_MUTEX_INITIALIZER;
 // barrier for all threads
 pthread_barrier_t init_barrier;
 
-int NUM_PLAYERS = MAX_ROUNDS;
+int NUM_PLAYERS;
 int turn_counter = 0;
 int round_number = 1;
 int dealer_selected;
@@ -35,6 +34,7 @@ int dealer;
 int total_cards = 52;  // New variable to hold the total number of cards
 int round_winner = -1; // To track the round winner, initialized to -1
 int numChips;
+int seed;
 
 typedef struct
 {
@@ -52,7 +52,7 @@ typedef struct
     int chips_eaten;
 } Player;
 
-Player players[MAX_ROUNDS]; // Global array of players
+Player *players; // Global array of players
 
 // Function prototypes
 void initializeDeck(Card *deck, int total_cards);
@@ -290,7 +290,7 @@ void *player_thread(void *arg)
     // Wait at the barrier for all other threads
     pthread_barrier_wait(&init_barrier);
 
-    while (round_number <= MAX_ROUNDS)
+    while (round_number <= NUM_PLAYERS)
     {
         dealer_selected = 0;
         pthread_mutex_lock(&mutexDealer);
@@ -318,8 +318,13 @@ void *player_thread(void *arg)
 
         // Lock mutex so only one player can go at a time
         pthread_mutex_lock(&mutexPlayerTurn);
+
         // Handle the player's turn
-        handlePlayerTurn(player);
+        // Dealer does not participate in round
+        if (player->id != round_number)
+        {
+            handlePlayerTurn(player);
+        }
 
         // Signal that the player's turn is complete
         pthread_cond_signal(&condPlayerTurn);
@@ -327,7 +332,11 @@ void *player_thread(void *arg)
 
         // eat chips
         pthread_mutex_lock(&mutexChip);
-        handleChips(player);
+        // Dealer does not eat chips
+        if (player->id != round_number)
+        {
+            handleChips(player);
+        }
         pthread_mutex_unlock(&mutexChip);
 
         // Wait for all threads to complete
@@ -339,18 +348,26 @@ void *player_thread(void *arg)
 
 
         */
-        if (player->id == round_winner)
+        // dealer does not win or lose
+        if (player->id != round_number)
         {
-            printf("PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
-            printf("PLAYER %d: wins round %d\n", player->id, round_number);
+            if (player->id == round_winner)
+            {
+                printf("PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
+                printf("PLAYER %d: wins round %d\n", player->id, round_number);
+            }
         }
 
         // Wait for all threads to complete
         pthread_barrier_wait(&init_barrier);
 
-        if (player->id != round_winner)
+        // dealer does not lose round
+        if (player->id != round_number)
         {
-            printf("PLAYER %d: lost round %d\n", player->id, round_number);
+            if (player->id != round_winner)
+            {
+                printf("PLAYER %d: lost round %d\n", player->id, round_number);
+            }
         }
 
         // Wait for all threads to complete
@@ -392,9 +409,28 @@ void *player_thread(void *arg)
     return NULL;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    srand(52);
+    if (argc != 4) // Expecting exactly 3 additional arguments: seed, num_players, num_chips
+    {
+        fprintf(stderr, "Usage: %s <seed> <num_players> <num_chips>\n", argv[0]);
+        return 1;
+    }
+
+    // Convert arguments to integers
+    seed = atoi(argv[1]);
+    NUM_PLAYERS = atoi(argv[2]);
+    players = (Player *)malloc(NUM_PLAYERS * sizeof(Player));
+    if (players == NULL)
+    {
+        perror("Failed to allocate memory for players");
+        free(deck);
+        return 1;
+    }
+    numChips = atoi(argv[3]);
+
+    srand(seed);
+
     deck = (Card *)malloc(sizeof(Card) * total_cards);
 
     if (deck == NULL)
@@ -405,7 +441,7 @@ int main()
 
     initializeDeck(deck, total_cards);
 
-    pthread_t threads[MAX_ROUNDS];
+    pthread_t threads[NUM_PLAYERS];
 
     // Initialize the barrier for the number of players
     pthread_barrier_init(&init_barrier, NULL, NUM_PLAYERS);
@@ -429,12 +465,12 @@ int main()
         pthread_join(threads[i], NULL);
     }
 
-    // Clean up
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&conditional);
     pthread_mutex_destroy(&mutexDealer);
     pthread_cond_destroy(&condDealer);
     pthread_barrier_destroy(&init_barrier);
+    free(players);
 
     printf("Game ended after %d rounds.\n", round_number - 1);
 
