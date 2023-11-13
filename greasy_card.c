@@ -300,7 +300,7 @@ void *player_thread(void *arg)
             dealer_selected = 1;
             dealer = player->id;
 
-            printf("Player %d is the dealer!\n", dealer);
+            printf("\nPlayer %d is the dealer!\n", dealer);
 
             dealerWork(player->id, players, NUM_PLAYERS);
 
@@ -322,36 +322,10 @@ void *player_thread(void *arg)
 
         // Handle the player's turn
         // Dealer does not participate in round
-        if (player->id != round_number)
+        if (player->id != round_number && round_winner == -1)
         {
             handlePlayerTurn(player);
-        }
 
-        // Signal that the player's turn is complete
-        pthread_cond_signal(&condPlayerTurn);
-        pthread_mutex_unlock(&mutexPlayerTurn);
-
-        // eat chips
-        pthread_mutex_lock(&mutexChip);
-        // Dealer does not eat chips
-        if (player->id != round_number)
-        {
-            handleChips(player);
-        }
-        pthread_mutex_unlock(&mutexChip);
-
-        // Wait for all threads to complete
-        pthread_barrier_wait(&init_barrier);
-
-        /*
-            This portion prints which players won and loss
-            It also ensures that the winner will alway
-
-
-        */
-        // dealer does not win or lose
-        if (player->id != round_number)
-        {
             if (player->id == round_winner)
             {
                 printf("PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
@@ -359,10 +333,12 @@ void *player_thread(void *arg)
             }
         }
 
-        // Wait for all threads to complete
+        // Signal that the player's turn is complete
+        pthread_cond_signal(&condPlayerTurn);
+        pthread_mutex_unlock(&mutexPlayerTurn);
+
         pthread_barrier_wait(&init_barrier);
 
-        // dealer does not lose round
         if (player->id != round_number)
         {
             if (player->id != round_winner)
@@ -371,12 +347,11 @@ void *player_thread(void *arg)
             }
         }
 
-        // Wait for all threads to complete
         pthread_barrier_wait(&init_barrier);
 
         if (player->id == round_number)
         {
-            printf("PLAYER %d: Placing greasy back in the deck\n", player->id);
+            printf("PLAYER %d: Placing greasy in the back of the deck\n", player->id);
             addCardToDeckBack(deck, &total_cards, greasy_card);
         }
 
@@ -388,7 +363,7 @@ void *player_thread(void *arg)
 
         if (turn_counter == NUM_PLAYERS)
         {
-            printf("PLAYER %d: Round ends\n\n", dealer);
+            printf("PLAYER %d: Round ends\n", dealer);
             round_winner = -1;
             round_number++;
             turn_counter = 0;
@@ -405,6 +380,18 @@ void *player_thread(void *arg)
             } while (turn_counter != 0);
             pthread_mutex_unlock(&mutex);
         }
+
+        // eat chips
+        pthread_mutex_lock(&mutexChip);
+        // Dealer does not eat chips
+        if (player->id != round_number)
+        {
+            handleChips(player);
+        }
+        pthread_mutex_unlock(&mutexChip);
+
+        // Wait for all threads to complete
+        pthread_barrier_wait(&init_barrier);
     }
 
     return NULL;
@@ -473,7 +460,7 @@ int main(int argc, char *argv[])
     pthread_barrier_destroy(&init_barrier);
     free(players);
 
-    printf("Game ended after %d rounds.\n", round_number - 1);
+    printf("\nGame ended after %d rounds.\n", round_number - 1);
 
     free(deck);
     return 0;
