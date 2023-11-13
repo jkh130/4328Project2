@@ -36,6 +36,7 @@ int round_winner = -1; // To track the round winner, initialized to -1
 int numChips;
 int seed;
 int chips_max;
+int turn = 0;
 
 typedef struct
 {
@@ -268,14 +269,16 @@ void handleChips(Player *player)
         numChips = 20;
         if (randChips != 0)
         {
-            printf("PLAYER %d: Eats %d chips\n", player->id, (numChips - randChips));
+
+            printf("PLAYER %d: Eats %d chips\n", player->id, (randChips));
             numChips = numChips - randChips;
         }
 
-        printf("BAG: %d Chips left\n", (numChips - randChips));
+        printf("BAG: %d Chips left\n", (numChips));
     }
     else
     {
+
         printf("PLAYER %d: Eats %d chips\n", player->id, randChips);
         numChips = numChips - randChips;
         printf("BAG: %d Chips left\n", numChips);
@@ -285,6 +288,7 @@ void handleChips(Player *player)
 void *player_thread(void *arg)
 {
     Player *player = (Player *)arg;
+    srand(seed);
 
     // Initialize the hand of the player
     initializeHand(player);
@@ -317,28 +321,30 @@ void *player_thread(void *arg)
             pthread_mutex_unlock(&mutexDealer);
         }
 
-        // Lock mutex so only one player can go at a time
-        pthread_mutex_lock(&mutexPlayerTurn);
-
         // Handle the player's turn
         // Dealer does not participate in round
-        if (player->id != round_number && round_winner == -1)
+
+        do
         {
-            handlePlayerTurn(player);
-
-            if (player->id == round_winner)
+            pthread_mutex_lock(&mutexPlayerTurn);
+            if ((player->id == (((round_number + turn) % NUM_PLAYERS)) + 1) && player->id != round_number /*ensure dealer does not increment turn*/)
             {
-                printf("PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
-                printf("PLAYER %d: wins round %d\n", player->id, round_number);
-            }
-        }
+                // printf("handle player turn\n");
+                handlePlayerTurn(player);
+                if (player->id == round_winner)
+                {
+                    printf("PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
+                    printf("PLAYER %d: wins round %d\n", player->id, round_number);
+                }
 
-        // Signal that the player's turn is complete
-        pthread_cond_signal(&condPlayerTurn);
-        pthread_mutex_unlock(&mutexPlayerTurn);
+                turn++;
+            }
+
+            pthread_mutex_unlock(&mutexPlayerTurn);
+
+        } while (round_winner == -1 && turn != NUM_PLAYERS - 1);
 
         pthread_barrier_wait(&init_barrier);
-
         if (player->id != round_number)
         {
             if (player->id != round_winner)
@@ -356,9 +362,11 @@ void *player_thread(void *arg)
         }
 
         // Wait for all threads to complete
+
         pthread_barrier_wait(&init_barrier);
 
         pthread_mutex_lock(&mutex);
+
         turn_counter++;
 
         if (turn_counter == NUM_PLAYERS)
@@ -367,13 +375,14 @@ void *player_thread(void *arg)
             round_winner = -1;
             round_number++;
             turn_counter = 0;
-            sleep(2);
+            turn = 0;
 
             pthread_cond_broadcast(&conditional);
             pthread_mutex_unlock(&mutex);
         }
         else
         {
+
             do
             {
                 pthread_cond_wait(&conditional, &mutex);
@@ -407,6 +416,7 @@ int main(int argc, char *argv[])
 
     // Convert arguments to integers
     seed = atoi(argv[1]);
+
     NUM_PLAYERS = atoi(argv[2]);
     players = (Player *)malloc(NUM_PLAYERS * sizeof(Player));
     if (players == NULL)
@@ -416,8 +426,6 @@ int main(int argc, char *argv[])
         return 1;
     }
     chips_max = atoi(argv[3]);
-
-    srand(seed);
 
     deck = (Card *)malloc(sizeof(Card) * total_cards);
 
