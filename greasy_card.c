@@ -173,9 +173,11 @@ void dealerWork(int dealer_id, Player players[], int num_players)
 
         for (int j = 0; j < MAX_HAND_SIZE; j++)
         {
-            if (strcmp(players[i].hand[j].suit, "Empty") == 0)
+            if (strcmp(players[i].hand[j].suit, "Empty") == 0 && players[i].id != dealer_id)
             {
+                printf("PLAYER %d: deals a card to PLAYER %d\n", dealer_id, players[i].id);
                 players[i].hand[j] = takeCardFromTop(deck, &total_cards);
+                j = MAX_HAND_SIZE;
             }
         }
     }
@@ -207,9 +209,21 @@ void printPlayerHand(Player *player)
 
 void handlePlayerTurn(Player *player)
 {
+    int randomIndex = rand() % MAX_HAND_SIZE;
 
     if (round_winner == -1)
     {
+
+        for (int j = 0; j < MAX_HAND_SIZE; j++)
+        {
+            if (strcmp(player->hand[j].suit, "Empty") == 0)
+            {
+
+                player->hand[j] = takeCardFromTop(deck, &total_cards);
+                printf("PLAYER %d: draws a %s of %s\n", player->id, player->hand[j].value, player->hand[j].suit);
+                j = MAX_HAND_SIZE;
+            }
+        }
         // Check for matching card
         int hasMatchingCard = 0;
 
@@ -237,21 +251,12 @@ void handlePlayerTurn(Player *player)
         // Get rid of random card
         if (hasMatchingCard == 0)
         {
-            int randomIndex = rand() % MAX_HAND_SIZE;
+
             printf("PLAYER %d: discards %s of %s at random\n", player->id, player->hand[randomIndex].value, player->hand[randomIndex].suit);
             // add card to back of deck and make player hand empty
             addCardToDeckBack(deck, &total_cards, player->hand[randomIndex]);
             player->hand[randomIndex] = createEmptyCard();
         }
-    }
-    else
-    {
-        int randomIndex = rand() % MAX_HAND_SIZE;
-        printf("PLAYER %d: discards %s of %s at random\n", player->id, player->hand[randomIndex].value, player->hand[randomIndex].suit);
-
-        // add card to back of deck and make player hand empty
-        addCardToDeckBack(deck, &total_cards, player->hand[randomIndex]);
-        player->hand[randomIndex] = createEmptyCard();
     }
 }
 
@@ -288,7 +293,7 @@ void handleChips(Player *player)
 void *player_thread(void *arg)
 {
     Player *player = (Player *)arg;
-    srand(seed);
+    srand(seed * (player->id));
 
     // Initialize the hand of the player
     initializeHand(player);
