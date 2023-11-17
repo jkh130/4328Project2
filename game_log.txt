@@ -1,0 +1,159 @@
+
+Player 1 is the dealer!
+PLAYER 1: shuffling cards 
+PLAYER 1: Greasy card is 8 of Spades
+PLAYER 1: deals a card to PLAYER 2
+PLAYER 1: deals a card to PLAYER 3
+PLAYER 1: deals a card to PLAYER 4
+PLAYER 1: deals a card to PLAYER 5
+PLAYER 1: deals a card to PLAYER 6
+PLAYER 1: opening first bag of chips 
+BAG: 30 chips left
+PLAYER 2: draws a Queen of Spades
+PLAYER 2: discards Queen of Spades at random
+PLAYER 3: draws a 5 of Diamonds
+PLAYER 3: discards Jack of Spades at random
+PLAYER 4: draws a 2 of Diamonds
+PLAYER 4: discards 10 of Hearts at random
+PLAYER 5: draws a 4 of Spades
+PLAYER 5: discards 4 of Spades at random
+PLAYER 6: draws a 6 of Spades
+PLAYER 6: discards 6 of Spades at random
+PLAYER 2: lost round 1
+PLAYER 3: lost round 1
+PLAYER 6: lost round 1
+PLAYER 5: lost round 1
+PLAYER 4: lost round 1
+PLAYER 1: Placing greasy in the back of the deck
+PLAYER 1: Round ends
+PLAYER 2: Eats 1 chips
+BAG: 29 Chips left
+PLAYER 3: Eats 4 chips
+BAG: 25 Chips left
+PLAYER 4: Eats 1 chips
+BAG: 24 Chips left
+PLAYER 5: Eats 5 chips
+BAG: 19 Chips left
+PLAYER 6: Eats 4 chips
+BAG: 15 Chips left
+
+Player 2 is the dealer!
+PLAYER 2: shuffling cards 
+PLAYER 2: Greasy card is 3 of Spades
+PLAYER 2: deals a card to PLAYER 1
+PLAYER 2: deals a card to PLAYER 3
+PLAYER 2: deals a card to PLAYER 4
+PLAYER 2: deals a card to PLAYER 5
+PLAYER 2: deals a card to PLAYER 6
+PLAYER 5: lost round 2
+PLAYER 1: lost round 2
+PLAYER 6: lost round 2
+PLAYER 4: lost round 2
+PLAYER 3: lost round 2
+PLAYER 2: Placing greasy in the back of the deck
+PLAYER 2: Round ends
+PLAYER 3: Eats 5 chips
+BAG: 10 Chips left
+PLAYER 4: Eats 2 chips
+BAG: 8 Chips left
+PLAYER 5: Eats 3 chips
+BAG: 5 Chips left
+PLAYER 6: Eats 3 chips
+BAG: 2 Chips left
+PLAYER 1: Eats 2 chips
+PLAYER 1: Opens a new bag of chips
+PLAYER 1: Eats 3 chips
+BAG: 17 Chips left
+
+Player 3 is the dealer!
+PLAYER 3: shuffling cards 
+PLAYER 3: Greasy card is 6 of Spades
+PLAYER 3: deals a card to PLAYER 1
+PLAYER 3: deals a card to PLAYER 2
+PLAYER 5: lost round 3
+PLAYER 2: lost round 3
+PLAYER 4: lost round 3
+PLAYER 1: lost round 3
+PLAYER 6: lost round 3
+PLAYER 3: Placing greasy in the back of the deck
+PLAYER 3: Round ends
+PLAYER 4: Eats 4 chips
+BAG: 13 Chips left
+PLAYER 5: Eats 5 chips
+BAG: 8 Chips left
+PLAYER 6: Eats 3 chips
+BAG: 5 Chips left
+PLAYER 1: Eats 3 chips
+BAG: 2 Chips left
+PLAYER 2: Eats 1 chips
+BAG: 1 Chips left
+
+Player 4 is the dealer!
+PLAYER 4: shuffling cards 
+PLAYER 4: Greasy card is 9 of Clubs
+PLAYER 1: lost round 4
+PLAYER 5: lost round 4
+PLAYER 6: lost round 4
+PLAYER 2: lost round 4
+PLAYER 3: lost round 4
+PLAYER 4: Placing greasy in the back of the deck
+PLAYER 4: Round ends
+PLAYER 5: Eats 1 chips
+PLAYER 5: Opens a new bag of chips
+PLAYER 5: Eats 2 chips
+BAG: 18 Chips left
+PLAYER 6: Eats 4 chips
+BAG: 14 Chips left
+PLAYER 1: Eats 1 chips
+BAG: 13 Chips left
+PLAYER 2: Eats 3 chips
+BAG: 10 Chips left
+PLAYER 3: Eats 2 chips
+BAG: 8 Chips left
+
+Player 5 is the dealer!
+PLAYER 5: shuffling cards 
+PLAYER 5: Greasy card is 8 of Clubs
+PLAYER 4: lost round 5
+PLAYER 6: lost round 5
+PLAYER 1: lost round 5
+PLAYER 3: lost round 5
+PLAYER 2: lost round 5
+PLAYER 5: Placing greasy in the back of the deck
+PLAYER 5: Round ends
+PLAYER 6: Eats 1 chips
+BAG: 7 Chips left
+PLAYER 1: Eats 2 chips
+BAG: 5 Chips left
+PLAYER 2: Eats 2 chips
+BAG: 3 Chips left
+PLAYER 3: Eats 3 chips
+PLAYER 3: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 4: Eats 4 chips
+BAG: 16 Chips left
+
+Player 6 is the dealer!
+PLAYER 6: shuffling cards 
+PLAYER 6: Greasy card is Queen of Diamonds
+PLAYER 2: lost round 6
+PLAYER 3: lost round 6
+PLAYER 4: lost round 6
+PLAYER 1: lost round 6
+PLAYER 5: lost round 6
+PLAYER 6: Placing greasy in the back of the deck
+PLAYER 6: Round ends
+PLAYER 1: Eats 5 chips
+BAG: 11 Chips left
+PLAYER 2: Eats 1 chips
+BAG: 10 Chips left
+PLAYER 3: Eats 5 chips
+BAG: 5 Chips left
+PLAYER 4: Eats 3 chips
+BAG: 2 Chips left
+PLAYER 5: Eats 2 chips
+PLAYER 5: Opens a new bag of chips
+PLAYER 5: Eats 1 chips
+BAG: 19 Chips left
+
+Game ended after 6 rounds.

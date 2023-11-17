@@ -15,6 +15,7 @@ pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 // barrier for all threads
 pthread_barrier_t init_barrier;
 
+FILE *output_file;
 int NUM_PLAYERS;
 int turn_counter = 0;
 int round_number = 1;
@@ -103,7 +104,7 @@ void printDeck(Card *deck, int size)
 {
     for (int i = 0; i < size; i++)
     {
-        printf("%s of %s\n", deck[i].value, deck[i].suit);
+        fprintf(output_file, "%s of %s\n", deck[i].value, deck[i].suit);
     }
 }
 
@@ -129,7 +130,7 @@ void addCardToDeckBack(Card *deck, int *total_cards, Card new_card)
     if (*total_cards >= 52)
     {
         // Handle the case where the deck is already full
-        printf("Deck is full. Cannot add a new card.\n");
+        fprintf(output_file, "Deck is full. Cannot add a new card.\n");
         return;
     }
 
@@ -149,23 +150,23 @@ void addCardToDeckBack(Card *deck, int *total_cards, Card new_card)
 void dealerWork(int dealer_id, Player players[], int num_players)
 {
     // (1) Shuffle deck of cards
-    printf("PLAYER %d: shuffling cards \n", dealer_id);
+    fprintf(output_file, "PLAYER %d: shuffling cards \n", dealer_id);
     shuffleDeck(deck, total_cards);
 
     // (2) Choose and display greasy card
     greasy_card = takeCardFromTop(deck, &total_cards);
-    printf("PLAYER %d: Greasy card is %s of %s\n", dealer_id, greasy_card.value, greasy_card.suit);
+    fprintf(output_file, "PLAYER %d: Greasy card is %s of %s\n", dealer_id, greasy_card.value, greasy_card.suit);
 
     // (3) Deal a single card to each player and display player ID
     for (int i = 0; i < num_players; i++)
     {
-        // printf("I can see Player %d's hand %s of %s and %s of %s\n", players[i].id, players[i].hand[0].value, players[i].hand[0].suit, players[i].hand[1].value, players[i].hand[1].suit);
+        // fprintf(output_file, "I can see Player %d's hand %s of %s and %s of %s\n", players[i].id, players[i].hand[0].value, players[i].hand[0].suit, players[i].hand[1].value, players[i].hand[1].suit);
 
         for (int j = 0; j < MAX_HAND_SIZE; j++)
         {
             if (strcmp(players[i].hand[j].suit, "Empty") == 0 && players[i].id != dealer_id)
             {
-                printf("PLAYER %d: deals a card to PLAYER %d\n", dealer_id, players[i].id);
+                fprintf(output_file, "PLAYER %d: deals a card to PLAYER %d\n", dealer_id, players[i].id);
                 players[i].hand[j] = takeCardFromTop(deck, &total_cards);
                 j = MAX_HAND_SIZE;
             }
@@ -175,24 +176,24 @@ void dealerWork(int dealer_id, Player players[], int num_players)
     // (4) Open first bag of chips
     if (dealer_id == 1)
     {
-        printf("PLAYER %d: opening first bag of chips \n", dealer_id);
+        fprintf(output_file, "PLAYER %d: opening first bag of chips \n", dealer_id);
         numChips = chips_max;
-        printf("BAG: %d chips left\n", numChips);
+        fprintf(output_file, "BAG: %d chips left\n", numChips);
     }
 }
 
 void printPlayerHand(Player *player)
 {
-    printf("Player %d's hand:\n", player->id);
+    fprintf(output_file, "Player %d's hand:\n", player->id);
     for (int i = 0; i < MAX_HAND_SIZE; i++)
     {
         if (strcmp(player->hand[i].suit, "Empty") == 0)
         {
-            printf("Card %d: [empty]\n", i + 1);
+            fprintf(output_file, "Card %d: [empty]\n", i + 1);
         }
         else
         {
-            printf("Card %d: %s of %s\n", i + 1, player->hand[i].value, player->hand[i].suit);
+            fprintf(output_file, "Card %d: %s of %s\n", i + 1, player->hand[i].value, player->hand[i].suit);
         }
     }
 }
@@ -210,7 +211,7 @@ void handlePlayerTurn(Player *player)
             {
 
                 player->hand[j] = takeCardFromTop(deck, &total_cards);
-                printf("PLAYER %d: draws a %s of %s\n", player->id, player->hand[j].value, player->hand[j].suit);
+                fprintf(output_file, "PLAYER %d: draws a %s of %s\n", player->id, player->hand[j].value, player->hand[j].suit);
                 j = MAX_HAND_SIZE;
             }
         }
@@ -242,7 +243,7 @@ void handlePlayerTurn(Player *player)
         if (hasMatchingCard == 0)
         {
 
-            printf("PLAYER %d: discards %s of %s at random\n", player->id, player->hand[randomIndex].value, player->hand[randomIndex].suit);
+            fprintf(output_file, "PLAYER %d: discards %s of %s at random\n", player->id, player->hand[randomIndex].value, player->hand[randomIndex].suit);
             // add card to back of deck and make player hand empty
             addCardToDeckBack(deck, &total_cards, player->hand[randomIndex]);
             player->hand[randomIndex] = createEmptyCard();
@@ -256,27 +257,27 @@ void handleChips(Player *player)
 
     if (numChips <= randChips)
     {
-        printf("PLAYER %d: Eats %d chips\n", player->id, numChips);
+        fprintf(output_file, "PLAYER %d: Eats %d chips\n", player->id, numChips);
 
         randChips = randChips - numChips;
 
-        printf("PLAYER %d: Opens a new bag of chips\n", player->id);
+        fprintf(output_file, "PLAYER %d: Opens a new bag of chips\n", player->id);
         numChips = 20;
         if (randChips != 0)
         {
 
-            printf("PLAYER %d: Eats %d chips\n", player->id, (randChips));
+            fprintf(output_file, "PLAYER %d: Eats %d chips\n", player->id, (randChips));
             numChips = numChips - randChips;
         }
 
-        printf("BAG: %d Chips left\n", (numChips));
+        fprintf(output_file, "BAG: %d Chips left\n", (numChips));
     }
     else
     {
 
-        printf("PLAYER %d: Eats %d chips\n", player->id, randChips);
+        fprintf(output_file, "PLAYER %d: Eats %d chips\n", player->id, randChips);
         numChips = numChips - randChips;
-        printf("BAG: %d Chips left\n", numChips);
+        fprintf(output_file, "BAG: %d Chips left\n", numChips);
     }
 }
 
@@ -299,7 +300,7 @@ void *player_thread(void *arg)
             dealer_selected = 1;
             dealer = player->id;
 
-            printf("\nPlayer %d is the dealer!\n", dealer);
+            fprintf(output_file, "\nPlayer %d is the dealer!\n", dealer);
 
             dealerWork(player->id, players, NUM_PLAYERS);
 
@@ -324,12 +325,12 @@ void *player_thread(void *arg)
             pthread_mutex_lock(&mutex);
             if ((player->id == (((round_number + turn) % NUM_PLAYERS)) + 1) && player->id != round_number /*ensure dealer does not increment turn*/)
             {
-                // printf("handle player turn\n");
+                // fprintf(output_file, "handle player turn\n");
                 handlePlayerTurn(player);
                 if (player->id == round_winner)
                 {
-                    printf("PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
-                    printf("PLAYER %d: wins round %d\n", player->id, round_number);
+                    fprintf(output_file, "PLAYER %d: hand (%s of %s, %s of %s) <> Greasy card is %s of %s\n", player->id, player->hand[0].value, player->hand[0].suit, player->hand[1].value, player->hand[1].suit, greasy_card.value, greasy_card.suit);
+                    fprintf(output_file, "PLAYER %d: wins round %d\n", player->id, round_number);
                 }
 
                 turn++;
@@ -344,7 +345,7 @@ void *player_thread(void *arg)
         {
             if (player->id != round_winner)
             {
-                printf("PLAYER %d: lost round %d\n", player->id, round_number);
+                fprintf(output_file, "PLAYER %d: lost round %d\n", player->id, round_number);
             }
         }
 
@@ -352,7 +353,8 @@ void *player_thread(void *arg)
 
         if (player->id == round_number)
         {
-            printf("PLAYER %d: Placing greasy in the back of the deck\n", player->id);
+            fprintf(output_file, "PLAYER %d: Placing greasy in the back of the deck\n", player->id);
+
             addCardToDeckBack(deck, &total_cards, greasy_card);
         }
 
@@ -366,7 +368,7 @@ void *player_thread(void *arg)
 
         if (turn_counter == NUM_PLAYERS)
         {
-            printf("PLAYER %d: Round ends\n", dealer);
+            fprintf(output_file, "PLAYER %d: Round ends\n", dealer);
             round_winner = -1;
             temp_roundnumber = round_number;
             round_number++;
@@ -420,6 +422,16 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Usage: %s <seed> <num_players> <num_chips>\n", argv[0]);
         return 1;
     }
+    output_file = fopen("game_log.txt", "w");
+    if (output_file == NULL)
+    {
+        perror("Error opening output file");
+        free(deck);
+        free(players);
+        return 1;
+    }
+
+    setbuf(output_file, NULL);
 
     // Convert arguments to integers
     seed = atoi(argv[1]);
@@ -468,6 +480,7 @@ int main(int argc, char *argv[])
         pthread_join(threads[i], NULL);
     }
 
-    printf("\nGame ended after %d rounds.\n", round_number - 1);
+    fprintf(output_file, "\nGame ended after %d rounds.\n", round_number - 1);
+    printf("Results saved to game_log.txt\n");
     return 0;
 }
