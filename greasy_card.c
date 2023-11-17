@@ -54,6 +54,10 @@ void dealerWork(int dealer_id, Player players[], int num_players);
 void *player_thread(void *arg);
 Card takeCardFromTop(Card *deck, int *size);
 void initializeHand(Player *player);
+void addCardToDeckBack(Card *deck, int *total_cards, Card new_card);
+void handlePlayerTurn(Player *player);
+void handleChips(Player *player);
+Card createEmptyCard();
 
 Card createEmptyCard()
 {
@@ -85,14 +89,10 @@ void initializeDeck(Card *deck, int total_cards)
 
 void shuffleDeck(Card *deck, int size)
 {
-
     for (int i = size - 1; i > 0; i--)
     {
-        // Generate a random index between 0 and i (inclusive)
-
         int j = rand() % (i + 1);
 
-        // Swap deck[i] and deck[j]
         Card temp = deck[i];
         deck[i] = deck[j];
         deck[j] = temp;
@@ -399,6 +399,7 @@ void *player_thread(void *arg)
             }
 
             pthread_mutex_unlock(&mutex);
+            pthread_barrier_wait(&init_barrier);
         } while (turn != NUM_PLAYERS - 1);
 
         // Wait for all threads to complete
@@ -467,15 +468,6 @@ int main(int argc, char *argv[])
         pthread_join(threads[i], NULL);
     }
 
-    pthread_mutex_destroy(&mutex);
-    pthread_cond_destroy(&cond);
-    pthread_mutex_destroy(&mutex);
-    pthread_cond_destroy(&cond);
-    pthread_barrier_destroy(&init_barrier);
-    free(players);
-
     printf("\nGame ended after %d rounds.\n", round_number - 1);
-
-    free(deck);
     return 0;
 }
