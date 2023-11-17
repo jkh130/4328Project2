@@ -8,20 +8,9 @@
 
 #define MAX_HAND_SIZE 2
 
-// mutex and conditional for handling round end
+// mutex and cond for handling round end
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t conditional = PTHREAD_COND_INITIALIZER;
-
-// mutex and conditional for handling who the dealer is
-pthread_mutex_t mutexDealer = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t condDealer = PTHREAD_COND_INITIALIZER;
-
-// mutex and conditional for handling player turns
-pthread_mutex_t mutexPlayerTurn = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t condPlayerTurn = PTHREAD_COND_INITIALIZER;
-
-// mutex and conditional for chip eating
-pthread_mutex_t mutexChip = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 
 // barrier for all threads
 pthread_barrier_t init_barrier;
@@ -304,7 +293,7 @@ void *player_thread(void *arg)
     while (round_number <= NUM_PLAYERS)
     {
         dealer_selected = 0;
-        pthread_mutex_lock(&mutexDealer);
+        pthread_mutex_lock(&mutex);
         if (player->id == round_number)
         {
             dealer_selected = 1;
@@ -315,16 +304,16 @@ void *player_thread(void *arg)
             dealerWork(player->id, players, NUM_PLAYERS);
 
             dealer_selected = 1;
-            pthread_mutex_unlock(&mutexDealer);
-            pthread_cond_broadcast(&condDealer);
+            pthread_mutex_unlock(&mutex);
+            pthread_cond_broadcast(&cond);
         }
         else
         {
             while (!dealer_selected)
             {
-                pthread_cond_wait(&condDealer, &mutexDealer);
+                pthread_cond_wait(&cond, &mutex);
             }
-            pthread_mutex_unlock(&mutexDealer);
+            pthread_mutex_unlock(&mutex);
         }
 
         // Handle the player's turn
@@ -332,7 +321,7 @@ void *player_thread(void *arg)
 
         do
         {
-            pthread_mutex_lock(&mutexPlayerTurn);
+            pthread_mutex_lock(&mutex);
             if ((player->id == (((round_number + turn) % NUM_PLAYERS)) + 1) && player->id != round_number /*ensure dealer does not increment turn*/)
             {
                 // printf("handle player turn\n");
@@ -346,7 +335,7 @@ void *player_thread(void *arg)
                 turn++;
             }
 
-            pthread_mutex_unlock(&mutexPlayerTurn);
+            pthread_mutex_unlock(&mutex);
 
         } while (round_winner == -1 && turn != NUM_PLAYERS - 1);
 
@@ -384,7 +373,7 @@ void *player_thread(void *arg)
             turn_counter = 0;
             turn = 0;
 
-            pthread_cond_broadcast(&conditional);
+            pthread_cond_broadcast(&cond);
             pthread_mutex_unlock(&mutex);
         }
         else
@@ -392,13 +381,13 @@ void *player_thread(void *arg)
 
             do
             {
-                pthread_cond_wait(&conditional, &mutex);
+                pthread_cond_wait(&cond, &mutex);
             } while (turn_counter != 0);
             pthread_mutex_unlock(&mutex);
         }
 
         // eat chips
-        pthread_mutex_lock(&mutexChip);
+        pthread_mutex_lock(&mutex);
         // Dealer does not eat chips
         do
         {
@@ -409,7 +398,7 @@ void *player_thread(void *arg)
                 turn++;
             }
 
-            pthread_mutex_unlock(&mutexChip);
+            pthread_mutex_unlock(&mutex);
         } while (turn != NUM_PLAYERS - 1);
 
         // Wait for all threads to complete
@@ -479,9 +468,9 @@ int main(int argc, char *argv[])
     }
 
     pthread_mutex_destroy(&mutex);
-    pthread_cond_destroy(&conditional);
-    pthread_mutex_destroy(&mutexDealer);
-    pthread_cond_destroy(&condDealer);
+    pthread_cond_destroy(&cond);
+    pthread_mutex_destroy(&mutex);
+    pthread_cond_destroy(&cond);
     pthread_barrier_destroy(&init_barrier);
     free(players);
 
