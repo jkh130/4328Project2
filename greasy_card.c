@@ -37,6 +37,7 @@ int numChips;
 int seed;
 int chips_max;
 int turn = 0;
+int temp_roundnumber;
 
 typedef struct
 {
@@ -378,6 +379,7 @@ void *player_thread(void *arg)
         {
             printf("PLAYER %d: Round ends\n", dealer);
             round_winner = -1;
+            temp_roundnumber = round_number;
             round_number++;
             turn_counter = 0;
             turn = 0;
@@ -398,16 +400,26 @@ void *player_thread(void *arg)
         // eat chips
         pthread_mutex_lock(&mutexChip);
         // Dealer does not eat chips
-        if (player->id != round_number)
+        do
         {
-            handleChips(player);
-        }
-        pthread_mutex_unlock(&mutexChip);
+
+            if ((player->id == (((temp_roundnumber + turn) % NUM_PLAYERS)) + 1) && player->id != temp_roundnumber)
+            {
+                handleChips(player);
+                turn++;
+            }
+
+            pthread_mutex_unlock(&mutexChip);
+        } while (turn != NUM_PLAYERS - 1);
 
         // Wait for all threads to complete
         pthread_barrier_wait(&init_barrier);
     }
 
+    if (player->id = round_number)
+    {
+        turn = 0;
+    }
     return NULL;
 }
 
