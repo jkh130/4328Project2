@@ -102,10 +102,12 @@ void shuffleDeck(Card *deck, int size)
 
 void printDeck(Card *deck, int size)
 {
+    fprintf(output_file, "DECK: ");
     for (int i = 0; i < size; i++)
     {
-        fprintf(output_file, "%s of %s\n", deck[i].value, deck[i].suit);
+        fprintf(output_file, "%s of %s ", deck[i].value, deck[i].suit);
     }
+    fprintf(output_file, "\n");
 }
 
 Card takeCardFromTop(Card *deck, int *size)
@@ -180,6 +182,7 @@ void dealerWork(int dealer_id, Player players[], int num_players)
         numChips = chips_max;
         fprintf(output_file, "BAG: %d chips left\n", numChips);
     }
+    printDeck(deck, total_cards);
 }
 
 void printPlayerHand(Player *player)

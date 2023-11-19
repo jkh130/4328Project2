@@ -7,22 +7,33 @@ PLAYER 1: deals a card to PLAYER 3
 PLAYER 1: deals a card to PLAYER 4
 PLAYER 1: deals a card to PLAYER 5
 PLAYER 1: deals a card to PLAYER 6
+PLAYER 1: deals a card to PLAYER 7
+PLAYER 1: deals a card to PLAYER 8
+PLAYER 1: deals a card to PLAYER 9
+PLAYER 1: deals a card to PLAYER 10
+PLAYER 1: deals a card to PLAYER 11
+PLAYER 1: deals a card to PLAYER 12
+PLAYER 1: deals a card to PLAYER 13
+PLAYER 1: deals a card to PLAYER 14
+PLAYER 1: deals a card to PLAYER 15
 PLAYER 1: opening first bag of chips 
 BAG: 30 chips left
-PLAYER 2: draws a Queen of Spades
-PLAYER 2: discards Queen of Spades at random
-PLAYER 3: draws a 5 of Diamonds
-PLAYER 3: discards Jack of Spades at random
-PLAYER 4: draws a 2 of Diamonds
-PLAYER 4: discards 10 of Hearts at random
-PLAYER 5: draws a 4 of Spades
-PLAYER 5: discards 4 of Spades at random
-PLAYER 6: draws a 6 of Spades
-PLAYER 6: discards 6 of Spades at random
-PLAYER 2: lost round 1
+DECK: 5 of Spades Ace of Clubs 8 of Diamonds 5 of Hearts Ace of Diamonds King of Spades 5 of Clubs 7 of Diamonds Jack of Hearts 2 of Clubs 3 of Hearts Queen of Hearts 8 of Hearts 10 of Clubs 2 of Spades King of Hearts 9 of Hearts Queen of Clubs Jack of Clubs 4 of Hearts 6 of Clubs 2 of Hearts 3 of Diamonds Queen of Diamonds King of Diamonds Ace of Spades 9 of Clubs 3 of Clubs 9 of Spades 6 of Diamonds 4 of Diamonds 7 of Clubs 9 of Diamonds 4 of Clubs 3 of Spades King of Clubs 8 of Clubs 
+PLAYER 2: draws a 8 of Clubs
+PLAYER 2: hand (7 of Spades, 8 of Clubs) <> Greasy card is 8 of Spades
+PLAYER 2: wins round 1
+PLAYER 15: lost round 1
+PLAYER 10: lost round 1
+PLAYER 12: lost round 1
+PLAYER 8: lost round 1
+PLAYER 13: lost round 1
+PLAYER 7: lost round 1
 PLAYER 3: lost round 1
-PLAYER 6: lost round 1
 PLAYER 5: lost round 1
+PLAYER 11: lost round 1
+PLAYER 14: lost round 1
+PLAYER 9: lost round 1
+PLAYER 6: lost round 1
 PLAYER 4: lost round 1
 PLAYER 1: Placing greasy in the back of the deck
 PLAYER 1: Round ends
@@ -32,128 +43,774 @@ PLAYER 3: Eats 4 chips
 BAG: 25 Chips left
 PLAYER 4: Eats 1 chips
 BAG: 24 Chips left
-PLAYER 5: Eats 5 chips
+PLAYER 5: Eats 2 chips
+BAG: 22 Chips left
+PLAYER 6: Eats 3 chips
 BAG: 19 Chips left
-PLAYER 6: Eats 4 chips
-BAG: 15 Chips left
+PLAYER 7: Eats 5 chips
+BAG: 14 Chips left
+PLAYER 8: Eats 1 chips
+BAG: 13 Chips left
+PLAYER 9: Eats 3 chips
+BAG: 10 Chips left
+PLAYER 10: Eats 4 chips
+BAG: 6 Chips left
+PLAYER 11: Eats 1 chips
+BAG: 5 Chips left
+PLAYER 12: Eats 2 chips
+BAG: 3 Chips left
+PLAYER 13: Eats 3 chips
+PLAYER 13: Opens a new bag of chips
+PLAYER 13: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 14: Eats 1 chips
+BAG: 18 Chips left
+PLAYER 15: Eats 2 chips
+BAG: 16 Chips left
 
 Player 2 is the dealer!
 PLAYER 2: shuffling cards 
-PLAYER 2: Greasy card is 3 of Spades
+PLAYER 2: Greasy card is 5 of Spades
 PLAYER 2: deals a card to PLAYER 1
 PLAYER 2: deals a card to PLAYER 3
 PLAYER 2: deals a card to PLAYER 4
 PLAYER 2: deals a card to PLAYER 5
 PLAYER 2: deals a card to PLAYER 6
+PLAYER 2: deals a card to PLAYER 7
+PLAYER 2: deals a card to PLAYER 8
+PLAYER 2: deals a card to PLAYER 9
+PLAYER 2: deals a card to PLAYER 10
+PLAYER 2: deals a card to PLAYER 11
+PLAYER 2: deals a card to PLAYER 12
+PLAYER 2: deals a card to PLAYER 13
+PLAYER 2: deals a card to PLAYER 14
+PLAYER 2: deals a card to PLAYER 15
+DECK: 3 of Spades 6 of Clubs 3 of Diamonds King of Spades 5 of Clubs 2 of Spades 3 of Hearts 6 of Diamonds Ace of Diamonds 5 of Hearts Queen of Clubs King of Hearts 8 of Diamonds 2 of Hearts 9 of Clubs 8 of Hearts 3 of Clubs King of Clubs 4 of Diamonds 10 of Clubs 7 of Diamonds 2 of Clubs 
+PLAYER 14: lost round 2
+PLAYER 8: lost round 2
+PLAYER 12: lost round 2
+PLAYER 10: lost round 2
+PLAYER 15: lost round 2
+PLAYER 9: lost round 2
 PLAYER 5: lost round 2
-PLAYER 1: lost round 2
 PLAYER 6: lost round 2
-PLAYER 4: lost round 2
 PLAYER 3: lost round 2
+PLAYER 13: lost round 2
+PLAYER 1: lost round 2
+PLAYER 4: lost round 2
+PLAYER 11: lost round 2
+PLAYER 7: lost round 2
 PLAYER 2: Placing greasy in the back of the deck
 PLAYER 2: Round ends
 PLAYER 3: Eats 5 chips
-BAG: 10 Chips left
+BAG: 11 Chips left
 PLAYER 4: Eats 2 chips
-BAG: 8 Chips left
-PLAYER 5: Eats 3 chips
-BAG: 5 Chips left
-PLAYER 6: Eats 3 chips
+BAG: 9 Chips left
+PLAYER 5: Eats 5 chips
+BAG: 4 Chips left
+PLAYER 6: Eats 4 chips
+PLAYER 6: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 7: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 8: Eats 5 chips
+BAG: 14 Chips left
+PLAYER 9: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 10: Eats 5 chips
+BAG: 6 Chips left
+PLAYER 11: Eats 4 chips
 BAG: 2 Chips left
-PLAYER 1: Eats 2 chips
-PLAYER 1: Opens a new bag of chips
-PLAYER 1: Eats 3 chips
-BAG: 17 Chips left
+PLAYER 12: Eats 2 chips
+PLAYER 12: Opens a new bag of chips
+PLAYER 12: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 13: Eats 5 chips
+BAG: 14 Chips left
+PLAYER 14: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 15: Eats 2 chips
+BAG: 9 Chips left
+PLAYER 1: Eats 5 chips
+BAG: 4 Chips left
 
 Player 3 is the dealer!
 PLAYER 3: shuffling cards 
-PLAYER 3: Greasy card is 6 of Spades
+PLAYER 3: Greasy card is 8 of Diamonds
 PLAYER 3: deals a card to PLAYER 1
-PLAYER 3: deals a card to PLAYER 2
-PLAYER 5: lost round 3
-PLAYER 2: lost round 3
-PLAYER 4: lost round 3
-PLAYER 1: lost round 3
+DECK: 2 of Clubs 3 of Clubs 3 of Spades 7 of Diamonds Ace of Diamonds King of Hearts Queen of Clubs 5 of Clubs King of Spades 3 of Diamonds 6 of Diamonds 5 of Hearts 3 of Hearts 9 of Clubs 4 of Diamonds King of Clubs 10 of Clubs 6 of Clubs 8 of Hearts 5 of Spades 2 of Spades 
 PLAYER 6: lost round 3
+PLAYER 13: lost round 3
+PLAYER 10: lost round 3
+PLAYER 12: lost round 3
+PLAYER 1: lost round 3
+PLAYER 14: lost round 3
+PLAYER 5: lost round 3
+PLAYER 9: lost round 3
+PLAYER 8: lost round 3
+PLAYER 4: lost round 3
+PLAYER 15: lost round 3
+PLAYER 11: lost round 3
+PLAYER 2: lost round 3
+PLAYER 7: lost round 3
 PLAYER 3: Placing greasy in the back of the deck
 PLAYER 3: Round ends
 PLAYER 4: Eats 4 chips
-BAG: 13 Chips left
-PLAYER 5: Eats 5 chips
-BAG: 8 Chips left
+PLAYER 4: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 5: Eats 3 chips
+BAG: 17 Chips left
 PLAYER 6: Eats 3 chips
+BAG: 14 Chips left
+PLAYER 7: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 8: Eats 4 chips
+BAG: 7 Chips left
+PLAYER 9: Eats 4 chips
+BAG: 3 Chips left
+PLAYER 10: Eats 3 chips
+PLAYER 10: Opens a new bag of chips
+PLAYER 10: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 11: Eats 5 chips
+BAG: 14 Chips left
+PLAYER 12: Eats 5 chips
+BAG: 9 Chips left
+PLAYER 13: Eats 5 chips
+BAG: 4 Chips left
+PLAYER 14: Eats 1 chips
+BAG: 3 Chips left
+PLAYER 15: Eats 3 chips
+PLAYER 15: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 1: Eats 3 chips
+BAG: 17 Chips left
+PLAYER 2: Eats 3 chips
+BAG: 14 Chips left
+
+Player 4 is the dealer!
+PLAYER 4: shuffling cards 
+PLAYER 4: Greasy card is Queen of Clubs
+DECK: King of Clubs 8 of Hearts 3 of Spades 4 of Diamonds 5 of Clubs 5 of Hearts 7 of Diamonds 3 of Diamonds King of Spades 2 of Clubs 6 of Diamonds 3 of Clubs 5 of Spades 2 of Spades 6 of Clubs 9 of Clubs 8 of Diamonds Ace of Diamonds 3 of Hearts 10 of Clubs King of Hearts 
+PLAYER 12: lost round 4
+PLAYER 6: lost round 4
+PLAYER 13: lost round 4
+PLAYER 7: lost round 4
+PLAYER 2: lost round 4
+PLAYER 14: lost round 4
+PLAYER 1: lost round 4
+PLAYER 3: lost round 4
+PLAYER 5: lost round 4
+PLAYER 10: lost round 4
+PLAYER 9: lost round 4
+PLAYER 15: lost round 4
+PLAYER 8: lost round 4
+PLAYER 11: lost round 4
+PLAYER 4: Placing greasy in the back of the deck
+PLAYER 4: Round ends
+PLAYER 5: Eats 5 chips
+BAG: 9 Chips left
+PLAYER 6: Eats 3 chips
+BAG: 6 Chips left
+PLAYER 7: Eats 4 chips
+BAG: 2 Chips left
+PLAYER 8: Eats 2 chips
+PLAYER 8: Opens a new bag of chips
+PLAYER 8: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 9: Eats 3 chips
+BAG: 16 Chips left
+PLAYER 10: Eats 2 chips
+BAG: 14 Chips left
+PLAYER 11: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 12: Eats 1 chips
+BAG: 10 Chips left
+PLAYER 13: Eats 2 chips
+BAG: 8 Chips left
+PLAYER 14: Eats 5 chips
+BAG: 3 Chips left
+PLAYER 15: Eats 1 chips
+BAG: 2 Chips left
+PLAYER 1: Eats 1 chips
+BAG: 1 Chips left
+PLAYER 2: Eats 1 chips
+PLAYER 2: Opens a new bag of chips
+PLAYER 2: Eats 2 chips
+BAG: 18 Chips left
+PLAYER 3: Eats 1 chips
+BAG: 17 Chips left
+
+Player 5 is the dealer!
+PLAYER 5: shuffling cards 
+PLAYER 5: Greasy card is 5 of Spades
+DECK: 3 of Hearts King of Hearts 4 of Diamonds Ace of Diamonds 7 of Diamonds 2 of Spades 10 of Clubs Queen of Clubs 9 of Clubs King of Clubs 8 of Diamonds 3 of Spades 6 of Clubs King of Spades 6 of Diamonds 5 of Hearts 3 of Clubs 3 of Diamonds 2 of Clubs 8 of Hearts 5 of Clubs 
+PLAYER 3: lost round 5
+PLAYER 4: lost round 5
+PLAYER 12: lost round 5
+PLAYER 7: lost round 5
+PLAYER 15: lost round 5
+PLAYER 11: lost round 5
+PLAYER 8: lost round 5
+PLAYER 9: lost round 5
+PLAYER 14: lost round 5
+PLAYER 13: lost round 5
+PLAYER 2: lost round 5
+PLAYER 10: lost round 5
+PLAYER 6: lost round 5
+PLAYER 1: lost round 5
+PLAYER 5: Placing greasy in the back of the deck
+PLAYER 5: Round ends
+PLAYER 6: Eats 4 chips
+BAG: 13 Chips left
+PLAYER 7: Eats 3 chips
+BAG: 10 Chips left
+PLAYER 8: Eats 4 chips
+BAG: 6 Chips left
+PLAYER 9: Eats 3 chips
+BAG: 3 Chips left
+PLAYER 10: Eats 3 chips
+PLAYER 10: Opens a new bag of chips
+PLAYER 10: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 11: Eats 5 chips
+BAG: 14 Chips left
+PLAYER 12: Eats 5 chips
+BAG: 9 Chips left
+PLAYER 13: Eats 1 chips
+BAG: 8 Chips left
+PLAYER 14: Eats 2 chips
+BAG: 6 Chips left
+PLAYER 15: Eats 1 chips
+BAG: 5 Chips left
+PLAYER 1: Eats 2 chips
+BAG: 3 Chips left
+PLAYER 2: Eats 1 chips
+BAG: 2 Chips left
+PLAYER 3: Eats 1 chips
+BAG: 1 Chips left
+PLAYER 4: Eats 1 chips
+PLAYER 4: Opens a new bag of chips
+PLAYER 4: Eats 2 chips
+BAG: 18 Chips left
+
+Player 6 is the dealer!
+PLAYER 6: shuffling cards 
+PLAYER 6: Greasy card is King of Spades
+DECK: 2 of Clubs 9 of Clubs Ace of Diamonds 3 of Diamonds 5 of Hearts 10 of Clubs 6 of Clubs 5 of Clubs Queen of Clubs King of Hearts 3 of Hearts King of Clubs 3 of Spades 4 of Diamonds 5 of Spades 7 of Diamonds 3 of Clubs 6 of Diamonds 8 of Hearts 2 of Spades 8 of Diamonds 
+PLAYER 14: lost round 6
+PLAYER 13: lost round 6
+PLAYER 11: lost round 6
+PLAYER 10: lost round 6
+PLAYER 7: lost round 6
+PLAYER 3: lost round 6
+PLAYER 12: lost round 6
+PLAYER 15: lost round 6
+PLAYER 2: lost round 6
+PLAYER 1: lost round 6
+PLAYER 4: lost round 6
+PLAYER 9: lost round 6
+PLAYER 5: lost round 6
+PLAYER 8: lost round 6
+PLAYER 6: Placing greasy in the back of the deck
+PLAYER 6: Round ends
+PLAYER 7: Eats 1 chips
+BAG: 17 Chips left
+PLAYER 8: Eats 5 chips
+BAG: 12 Chips left
+PLAYER 9: Eats 3 chips
+BAG: 9 Chips left
+PLAYER 10: Eats 1 chips
+BAG: 8 Chips left
+PLAYER 11: Eats 5 chips
+BAG: 3 Chips left
+PLAYER 12: Eats 3 chips
+PLAYER 12: Opens a new bag of chips
+PLAYER 12: Eats 2 chips
+BAG: 18 Chips left
+PLAYER 13: Eats 4 chips
+BAG: 14 Chips left
+PLAYER 14: Eats 2 chips
+BAG: 12 Chips left
+PLAYER 15: Eats 1 chips
+BAG: 11 Chips left
+PLAYER 1: Eats 5 chips
+BAG: 6 Chips left
+PLAYER 2: Eats 4 chips
+BAG: 2 Chips left
+PLAYER 3: Eats 1 chips
+BAG: 1 Chips left
+PLAYER 4: Eats 1 chips
+PLAYER 4: Opens a new bag of chips
+PLAYER 4: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 5: Eats 3 chips
+BAG: 16 Chips left
+
+Player 7 is the dealer!
+PLAYER 7: shuffling cards 
+PLAYER 7: Greasy card is Queen of Clubs
+DECK: 8 of Hearts 8 of Diamonds King of Spades King of Hearts King of Clubs 4 of Diamonds 3 of Spades 3 of Hearts 2 of Clubs 6 of Clubs 10 of Clubs 5 of Clubs 3 of Clubs 6 of Diamonds Ace of Diamonds 5 of Spades 3 of Diamonds 9 of Clubs 2 of Spades 7 of Diamonds 5 of Hearts 
+PLAYER 12: lost round 7
+PLAYER 11: lost round 7
+PLAYER 3: lost round 7
+PLAYER 8: lost round 7
+PLAYER 4: lost round 7
+PLAYER 5: lost round 7
+PLAYER 15: lost round 7
+PLAYER 9: lost round 7
+PLAYER 14: lost round 7
+PLAYER 2: lost round 7
+PLAYER 1: lost round 7
+PLAYER 10: lost round 7
+PLAYER 6: lost round 7
+PLAYER 13: lost round 7
+PLAYER 7: Placing greasy in the back of the deck
+PLAYER 7: Round ends
+PLAYER 8: Eats 2 chips
+BAG: 14 Chips left
+PLAYER 9: Eats 2 chips
+BAG: 12 Chips left
+PLAYER 10: Eats 4 chips
+BAG: 8 Chips left
+PLAYER 11: Eats 4 chips
+BAG: 4 Chips left
+PLAYER 12: Eats 4 chips
+PLAYER 12: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 13: Eats 4 chips
+BAG: 16 Chips left
+PLAYER 14: Eats 4 chips
+BAG: 12 Chips left
+PLAYER 15: Eats 1 chips
+BAG: 11 Chips left
+PLAYER 1: Eats 4 chips
+BAG: 7 Chips left
+PLAYER 2: Eats 5 chips
+BAG: 2 Chips left
+PLAYER 3: Eats 2 chips
+PLAYER 3: Opens a new bag of chips
+PLAYER 3: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 4: Eats 5 chips
+BAG: 14 Chips left
+PLAYER 5: Eats 1 chips
+BAG: 13 Chips left
+PLAYER 6: Eats 5 chips
+BAG: 8 Chips left
+
+Player 8 is the dealer!
+PLAYER 8: shuffling cards 
+PLAYER 8: Greasy card is 8 of Hearts
+DECK: 3 of Clubs 2 of Spades 2 of Clubs 5 of Clubs 10 of Clubs Queen of Clubs 5 of Hearts 8 of Diamonds 7 of Diamonds 4 of Diamonds King of Spades King of Hearts 9 of Clubs 5 of Spades Ace of Diamonds 6 of Diamonds 3 of Hearts King of Clubs 6 of Clubs 3 of Spades 3 of Diamonds 
+PLAYER 4: lost round 8
+PLAYER 1: lost round 8
+PLAYER 13: lost round 8
+PLAYER 6: lost round 8
+PLAYER 14: lost round 8
+PLAYER 15: lost round 8
+PLAYER 2: lost round 8
+PLAYER 10: lost round 8
+PLAYER 11: lost round 8
+PLAYER 9: lost round 8
+PLAYER 5: lost round 8
+PLAYER 3: lost round 8
+PLAYER 12: lost round 8
+PLAYER 7: lost round 8
+PLAYER 8: Placing greasy in the back of the deck
+PLAYER 8: Round ends
+PLAYER 9: Eats 3 chips
+BAG: 5 Chips left
+PLAYER 10: Eats 4 chips
+BAG: 1 Chips left
+PLAYER 11: Eats 1 chips
+PLAYER 11: Opens a new bag of chips
+PLAYER 11: Eats 3 chips
+BAG: 17 Chips left
+PLAYER 12: Eats 3 chips
+BAG: 14 Chips left
+PLAYER 13: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 14: Eats 4 chips
+BAG: 7 Chips left
+PLAYER 15: Eats 4 chips
+BAG: 3 Chips left
+PLAYER 1: Eats 3 chips
+PLAYER 1: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 2: Eats 4 chips
+BAG: 16 Chips left
+PLAYER 3: Eats 2 chips
+BAG: 14 Chips left
+PLAYER 4: Eats 4 chips
+BAG: 10 Chips left
+PLAYER 5: Eats 3 chips
+BAG: 7 Chips left
+PLAYER 6: Eats 2 chips
+BAG: 5 Chips left
+PLAYER 7: Eats 5 chips
+PLAYER 7: Opens a new bag of chips
+BAG: 20 Chips left
+
+Player 9 is the dealer!
+PLAYER 9: shuffling cards 
+PLAYER 9: Greasy card is 7 of Diamonds
+DECK: 3 of Clubs 3 of Diamonds 3 of Hearts 5 of Clubs 10 of Clubs Ace of Diamonds Queen of Clubs 5 of Spades 2 of Clubs 4 of Diamonds 6 of Diamonds 3 of Spades King of Clubs 8 of Diamonds 6 of Clubs King of Hearts 5 of Hearts 8 of Hearts 9 of Clubs King of Spades 2 of Spades 
+PLAYER 15: lost round 9
+PLAYER 7: lost round 9
+PLAYER 12: lost round 9
+PLAYER 11: lost round 9
+PLAYER 1: lost round 9
+PLAYER 8: lost round 9
+PLAYER 4: lost round 9
+PLAYER 10: lost round 9
+PLAYER 6: lost round 9
+PLAYER 2: lost round 9
+PLAYER 13: lost round 9
+PLAYER 14: lost round 9
+PLAYER 5: lost round 9
+PLAYER 3: lost round 9
+PLAYER 9: Placing greasy in the back of the deck
+PLAYER 9: Round ends
+PLAYER 10: Eats 3 chips
+BAG: 17 Chips left
+PLAYER 11: Eats 3 chips
+BAG: 14 Chips left
+PLAYER 12: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 13: Eats 3 chips
+BAG: 8 Chips left
+PLAYER 14: Eats 4 chips
+BAG: 4 Chips left
+PLAYER 15: Eats 4 chips
+PLAYER 15: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 1: Eats 5 chips
+BAG: 15 Chips left
+PLAYER 2: Eats 1 chips
+BAG: 14 Chips left
+PLAYER 3: Eats 3 chips
+BAG: 11 Chips left
+PLAYER 4: Eats 5 chips
+BAG: 6 Chips left
+PLAYER 5: Eats 2 chips
+BAG: 4 Chips left
+PLAYER 6: Eats 3 chips
+BAG: 1 Chips left
+PLAYER 7: Eats 1 chips
+PLAYER 7: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 8: Eats 3 chips
+BAG: 17 Chips left
+
+Player 10 is the dealer!
+PLAYER 10: shuffling cards 
+PLAYER 10: Greasy card is 6 of Clubs
+DECK: 3 of Spades 5 of Spades 8 of Diamonds Queen of Clubs 3 of Hearts 2 of Spades 3 of Diamonds Ace of Diamonds 5 of Clubs 4 of Diamonds King of Spades 2 of Clubs King of Clubs 10 of Clubs King of Hearts 6 of Diamonds 9 of Clubs 5 of Hearts 7 of Diamonds 3 of Clubs 8 of Hearts 
+PLAYER 8: lost round 10
+PLAYER 5: lost round 10
+PLAYER 12: lost round 10
+PLAYER 11: lost round 10
+PLAYER 3: lost round 10
+PLAYER 4: lost round 10
+PLAYER 2: lost round 10
+PLAYER 7: lost round 10
+PLAYER 15: lost round 10
+PLAYER 13: lost round 10
+PLAYER 6: lost round 10
+PLAYER 14: lost round 10
+PLAYER 1: lost round 10
+PLAYER 9: lost round 10
+PLAYER 10: Placing greasy in the back of the deck
+PLAYER 10: Round ends
+PLAYER 11: Eats 3 chips
+BAG: 14 Chips left
+PLAYER 12: Eats 1 chips
+BAG: 13 Chips left
+PLAYER 13: Eats 5 chips
+BAG: 8 Chips left
+PLAYER 14: Eats 2 chips
+BAG: 6 Chips left
+PLAYER 15: Eats 1 chips
+BAG: 5 Chips left
+PLAYER 1: Eats 5 chips
+PLAYER 1: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 2: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 3: Eats 2 chips
+BAG: 17 Chips left
+PLAYER 4: Eats 4 chips
+BAG: 13 Chips left
+PLAYER 5: Eats 4 chips
+BAG: 9 Chips left
+PLAYER 6: Eats 1 chips
+BAG: 8 Chips left
+PLAYER 7: Eats 3 chips
+BAG: 5 Chips left
+PLAYER 8: Eats 5 chips
+PLAYER 8: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 9: Eats 4 chips
+BAG: 16 Chips left
+
+Player 11 is the dealer!
+PLAYER 11: shuffling cards 
+PLAYER 11: Greasy card is 8 of Diamonds
+DECK: 6 of Clubs Ace of Diamonds 7 of Diamonds King of Hearts 5 of Spades 3 of Hearts 5 of Clubs 8 of Hearts 3 of Diamonds 4 of Diamonds King of Spades 5 of Hearts King of Clubs Queen of Clubs 9 of Clubs 6 of Diamonds 2 of Clubs 3 of Spades 10 of Clubs 3 of Clubs 2 of Spades 
+PLAYER 3: lost round 11
+PLAYER 6: lost round 11
+PLAYER 14: lost round 11
+PLAYER 12: lost round 11
+PLAYER 5: lost round 11
+PLAYER 4: lost round 11
+PLAYER 9: lost round 11
+PLAYER 1: lost round 11
+PLAYER 10: lost round 11
+PLAYER 2: lost round 11
+PLAYER 13: lost round 11
+PLAYER 8: lost round 11
+PLAYER 7: lost round 11
+PLAYER 15: lost round 11
+PLAYER 11: Placing greasy in the back of the deck
+PLAYER 11: Round ends
+PLAYER 12: Eats 4 chips
+BAG: 12 Chips left
+PLAYER 13: Eats 4 chips
+BAG: 8 Chips left
+PLAYER 14: Eats 3 chips
+BAG: 5 Chips left
+PLAYER 15: Eats 2 chips
+BAG: 3 Chips left
+PLAYER 1: Eats 3 chips
+PLAYER 1: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 2: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 3: Eats 2 chips
+BAG: 17 Chips left
+PLAYER 4: Eats 5 chips
+BAG: 12 Chips left
+PLAYER 5: Eats 1 chips
+BAG: 11 Chips left
+PLAYER 6: Eats 5 chips
+BAG: 6 Chips left
+PLAYER 7: Eats 2 chips
+BAG: 4 Chips left
+PLAYER 8: Eats 4 chips
+PLAYER 8: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 9: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 10: Eats 3 chips
+BAG: 16 Chips left
+
+Player 12 is the dealer!
+PLAYER 12: shuffling cards 
+PLAYER 12: Greasy card is 8 of Hearts
+DECK: 3 of Diamonds King of Spades Ace of Diamonds King of Hearts 3 of Clubs 6 of Clubs 2 of Spades Queen of Clubs 6 of Diamonds 5 of Clubs 10 of Clubs 5 of Spades 9 of Clubs 5 of Hearts 3 of Hearts 4 of Diamonds King of Clubs 7 of Diamonds 8 of Diamonds 2 of Clubs 3 of Spades 
+PLAYER 14: lost round 12
+PLAYER 15: lost round 12
+PLAYER 2: lost round 12
+PLAYER 5: lost round 12
+PLAYER 3: lost round 12
+PLAYER 8: lost round 12
+PLAYER 7: lost round 12
+PLAYER 4: lost round 12
+PLAYER 11: lost round 12
+PLAYER 9: lost round 12
+PLAYER 6: lost round 12
+PLAYER 10: lost round 12
+PLAYER 13: lost round 12
+PLAYER 1: lost round 12
+PLAYER 12: Placing greasy in the back of the deck
+PLAYER 12: Round ends
+PLAYER 13: Eats 2 chips
+BAG: 14 Chips left
+PLAYER 14: Eats 5 chips
+BAG: 9 Chips left
+PLAYER 15: Eats 3 chips
+BAG: 6 Chips left
+PLAYER 1: Eats 3 chips
+BAG: 3 Chips left
+PLAYER 2: Eats 3 chips
+PLAYER 2: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 3: Eats 3 chips
+BAG: 17 Chips left
+PLAYER 4: Eats 1 chips
+BAG: 16 Chips left
+PLAYER 5: Eats 5 chips
+BAG: 11 Chips left
+PLAYER 6: Eats 1 chips
+BAG: 10 Chips left
+PLAYER 7: Eats 3 chips
+BAG: 7 Chips left
+PLAYER 8: Eats 4 chips
+BAG: 3 Chips left
+PLAYER 9: Eats 3 chips
+PLAYER 9: Opens a new bag of chips
+PLAYER 9: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 10: Eats 4 chips
+BAG: 15 Chips left
+PLAYER 11: Eats 2 chips
+BAG: 13 Chips left
+
+Player 13 is the dealer!
+PLAYER 13: shuffling cards 
+PLAYER 13: Greasy card is 2 of Spades
+DECK: 3 of Hearts 3 of Diamonds 9 of Clubs King of Spades 6 of Clubs 7 of Diamonds Queen of Clubs 5 of Clubs King of Hearts 10 of Clubs 2 of Clubs 5 of Hearts 4 of Diamonds 3 of Clubs 8 of Diamonds Ace of Diamonds 8 of Hearts 5 of Spades King of Clubs 6 of Diamonds 3 of Spades 
+PLAYER 12: lost round 13
+PLAYER 11: lost round 13
+PLAYER 9: lost round 13
+PLAYER 14: lost round 13
+PLAYER 15: lost round 13
+PLAYER 7: lost round 13
+PLAYER 1: lost round 13
+PLAYER 8: lost round 13
+PLAYER 3: lost round 13
+PLAYER 5: lost round 13
+PLAYER 10: lost round 13
+PLAYER 4: lost round 13
+PLAYER 6: lost round 13
+PLAYER 2: lost round 13
+PLAYER 13: Placing greasy in the back of the deck
+PLAYER 13: Round ends
+PLAYER 14: Eats 3 chips
+BAG: 10 Chips left
+PLAYER 15: Eats 5 chips
 BAG: 5 Chips left
 PLAYER 1: Eats 3 chips
 BAG: 2 Chips left
 PLAYER 2: Eats 1 chips
 BAG: 1 Chips left
-
-Player 4 is the dealer!
-PLAYER 4: shuffling cards 
-PLAYER 4: Greasy card is 9 of Clubs
-PLAYER 1: lost round 4
-PLAYER 5: lost round 4
-PLAYER 6: lost round 4
-PLAYER 2: lost round 4
-PLAYER 3: lost round 4
-PLAYER 4: Placing greasy in the back of the deck
-PLAYER 4: Round ends
-PLAYER 5: Eats 1 chips
-PLAYER 5: Opens a new bag of chips
-PLAYER 5: Eats 2 chips
-BAG: 18 Chips left
-PLAYER 6: Eats 4 chips
+PLAYER 3: Eats 1 chips
+PLAYER 3: Opens a new bag of chips
+PLAYER 3: Eats 3 chips
+BAG: 17 Chips left
+PLAYER 4: Eats 3 chips
 BAG: 14 Chips left
-PLAYER 1: Eats 1 chips
-BAG: 13 Chips left
-PLAYER 2: Eats 3 chips
+PLAYER 5: Eats 5 chips
+BAG: 9 Chips left
+PLAYER 6: Eats 4 chips
+BAG: 5 Chips left
+PLAYER 7: Eats 1 chips
+BAG: 4 Chips left
+PLAYER 8: Eats 4 chips
+PLAYER 8: Opens a new bag of chips
+PLAYER 8: Eats 1 chips
+BAG: 19 Chips left
+PLAYER 9: Eats 4 chips
+BAG: 15 Chips left
+PLAYER 10: Eats 3 chips
+BAG: 12 Chips left
+PLAYER 11: Eats 2 chips
 BAG: 10 Chips left
-PLAYER 3: Eats 2 chips
-BAG: 8 Chips left
+PLAYER 12: Eats 1 chips
+BAG: 9 Chips left
 
-Player 5 is the dealer!
-PLAYER 5: shuffling cards 
-PLAYER 5: Greasy card is 8 of Clubs
-PLAYER 4: lost round 5
-PLAYER 6: lost round 5
-PLAYER 1: lost round 5
-PLAYER 3: lost round 5
-PLAYER 2: lost round 5
-PLAYER 5: Placing greasy in the back of the deck
-PLAYER 5: Round ends
-PLAYER 6: Eats 1 chips
+Player 14 is the dealer!
+PLAYER 14: shuffling cards 
+PLAYER 14: Greasy card is 5 of Clubs
+DECK: 8 of Diamonds 5 of Hearts 3 of Spades 3 of Diamonds Ace of Diamonds 6 of Diamonds 5 of Spades 3 of Clubs 4 of Diamonds King of Clubs King of Spades 9 of Clubs 6 of Clubs 8 of Hearts 2 of Spades 10 of Clubs 3 of Hearts 2 of Clubs King of Hearts Queen of Clubs 7 of Diamonds 
+PLAYER 12: lost round 14
+PLAYER 6: lost round 14
+PLAYER 8: lost round 14
+PLAYER 11: lost round 14
+PLAYER 7: lost round 14
+PLAYER 4: lost round 14
+PLAYER 9: lost round 14
+PLAYER 15: lost round 14
+PLAYER 2: lost round 14
+PLAYER 13: lost round 14
+PLAYER 5: lost round 14
+PLAYER 1: lost round 14
+PLAYER 10: lost round 14
+PLAYER 3: lost round 14
+PLAYER 14: Placing greasy in the back of the deck
+PLAYER 14: Round ends
+PLAYER 15: Eats 2 chips
 BAG: 7 Chips left
 PLAYER 1: Eats 2 chips
 BAG: 5 Chips left
-PLAYER 2: Eats 2 chips
-BAG: 3 Chips left
-PLAYER 3: Eats 3 chips
-PLAYER 3: Opens a new bag of chips
-BAG: 20 Chips left
-PLAYER 4: Eats 4 chips
-BAG: 16 Chips left
-
-Player 6 is the dealer!
-PLAYER 6: shuffling cards 
-PLAYER 6: Greasy card is Queen of Diamonds
-PLAYER 2: lost round 6
-PLAYER 3: lost round 6
-PLAYER 4: lost round 6
-PLAYER 1: lost round 6
-PLAYER 5: lost round 6
-PLAYER 6: Placing greasy in the back of the deck
-PLAYER 6: Round ends
-PLAYER 1: Eats 5 chips
-BAG: 11 Chips left
-PLAYER 2: Eats 1 chips
-BAG: 10 Chips left
-PLAYER 3: Eats 5 chips
-BAG: 5 Chips left
-PLAYER 4: Eats 3 chips
+PLAYER 2: Eats 3 chips
 BAG: 2 Chips left
-PLAYER 5: Eats 2 chips
-PLAYER 5: Opens a new bag of chips
-PLAYER 5: Eats 1 chips
-BAG: 19 Chips left
+PLAYER 3: Eats 1 chips
+BAG: 1 Chips left
+PLAYER 4: Eats 1 chips
+PLAYER 4: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 5: Eats 5 chips
+BAG: 15 Chips left
+PLAYER 6: Eats 5 chips
+BAG: 10 Chips left
+PLAYER 7: Eats 2 chips
+BAG: 8 Chips left
+PLAYER 8: Eats 5 chips
+BAG: 3 Chips left
+PLAYER 9: Eats 3 chips
+PLAYER 9: Opens a new bag of chips
+PLAYER 9: Eats 2 chips
+BAG: 18 Chips left
+PLAYER 10: Eats 2 chips
+BAG: 16 Chips left
+PLAYER 11: Eats 2 chips
+BAG: 14 Chips left
+PLAYER 12: Eats 4 chips
+BAG: 10 Chips left
+PLAYER 13: Eats 5 chips
+BAG: 5 Chips left
 
-Game ended after 6 rounds.
+Player 15 is the dealer!
+PLAYER 15: shuffling cards 
+PLAYER 15: Greasy card is King of Clubs
+DECK: 3 of Clubs Queen of Clubs 10 of Clubs 2 of Clubs 6 of Clubs 3 of Hearts King of Hearts 5 of Hearts 7 of Diamonds 5 of Spades Ace of Diamonds King of Spades 5 of Clubs 6 of Diamonds 8 of Hearts 8 of Diamonds 4 of Diamonds 3 of Diamonds 3 of Spades 9 of Clubs 2 of Spades 
+PLAYER 13: lost round 15
+PLAYER 5: lost round 15
+PLAYER 1: lost round 15
+PLAYER 14: lost round 15
+PLAYER 11: lost round 15
+PLAYER 6: lost round 15
+PLAYER 9: lost round 15
+PLAYER 3: lost round 15
+PLAYER 7: lost round 15
+PLAYER 8: lost round 15
+PLAYER 12: lost round 15
+PLAYER 4: lost round 15
+PLAYER 2: lost round 15
+PLAYER 10: lost round 15
+PLAYER 15: Placing greasy in the back of the deck
+PLAYER 15: Round ends
+PLAYER 1: Eats 3 chips
+BAG: 2 Chips left
+PLAYER 2: Eats 2 chips
+PLAYER 2: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 3: Eats 4 chips
+BAG: 16 Chips left
+PLAYER 4: Eats 2 chips
+BAG: 14 Chips left
+PLAYER 5: Eats 4 chips
+BAG: 10 Chips left
+PLAYER 6: Eats 3 chips
+BAG: 7 Chips left
+PLAYER 7: Eats 5 chips
+BAG: 2 Chips left
+PLAYER 8: Eats 2 chips
+PLAYER 8: Opens a new bag of chips
+BAG: 20 Chips left
+PLAYER 9: Eats 4 chips
+BAG: 16 Chips left
+PLAYER 10: Eats 1 chips
+BAG: 15 Chips left
+PLAYER 11: Eats 3 chips
+BAG: 12 Chips left
+PLAYER 12: Eats 1 chips
+BAG: 11 Chips left
+PLAYER 13: Eats 3 chips
+BAG: 8 Chips left
+PLAYER 14: Eats 5 chips
+BAG: 3 Chips left
+
+Game ended after 15 rounds.
