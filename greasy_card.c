@@ -45,7 +45,7 @@ typedef struct
 {
     int id;
     Card hand[MAX_HAND_SIZE];
-    int chips_eaten;
+
 } Player;
 
 Player *players;
@@ -96,8 +96,6 @@ void shuffleDeck(Card *deck, int size, int dealer_id)
     for (int i = size - 1; i > 0; i--)
     {
         int j = (rand() + dealer_id) % (i + 1);
-
-        // printf("j value %d \n", j);
 
         Card temp = deck[i];
         deck[i] = deck[j];
@@ -191,7 +189,6 @@ void printPlayerHand(Player *player)
         if (strcmp(player->hand[i].suit, "Empty") == 0)
         {
             // IF part of hand is empty do nothing
-            // fprintf(output_file, "[empty] ");
         }
         else
         {
@@ -221,7 +218,7 @@ void handlePlayerTurn(Player *player)
 
         for (int i = 0; i < MAX_HAND_SIZE; i++)
         {
-            // Check if the card in the player's hand matches the number value of the greasy card
+            // Check if the card in the players hand matches the number value of the greasy card
             if (strcmp(player->hand[i].value, greasy_card.value) == 0)
             {
                 hasMatchingCard = 1;
@@ -393,7 +390,6 @@ void *player_thread(void *arg)
         }
         else
         {
-
             do
             {
                 pthread_cond_wait(&cond, &mutex);

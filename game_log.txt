@@ -26,9 +26,9 @@ PLAYER 6: draws a 7 of Diamonds
 PLAYER 6: hand 5 of Clubs 7 of Diamonds 
 PLAYER 6: discards 7 of Diamonds at random
 PLAYER 5: lost round 1
-PLAYER 3: lost round 1
 PLAYER 2: lost round 1
 PLAYER 4: lost round 1
+PLAYER 3: lost round 1
 PLAYER 6: lost round 1
 PLAYER 1: Placing greasy in the back of the deck
 PLAYER 1: Round ends
@@ -63,11 +63,11 @@ PLAYER 6: discards 5 of Spades at random
 PLAYER 1: draws a 10 of Diamonds
 PLAYER 1: hand Ace of Hearts 10 of Diamonds 
 PLAYER 1: discards Ace of Hearts at random
-PLAYER 4: lost round 2
-PLAYER 6: lost round 2
 PLAYER 5: lost round 2
-PLAYER 1: lost round 2
+PLAYER 6: lost round 2
 PLAYER 3: lost round 2
+PLAYER 4: lost round 2
+PLAYER 1: lost round 2
 PLAYER 2: Placing greasy in the back of the deck
 PLAYER 2: Round ends
 PLAYER 3: Eats 5 chips
@@ -102,11 +102,11 @@ PLAYER 1: hand 6 of Clubs 10 of Diamonds
 PLAYER 1: discards 10 of Diamonds at random
 PLAYER 2: hand 3 of Spades 6 of Spades 
 PLAYER 2: discards 3 of Spades at random
-PLAYER 4: lost round 3
 PLAYER 6: lost round 3
-PLAYER 1: lost round 3
+PLAYER 4: lost round 3
 PLAYER 5: lost round 3
 PLAYER 2: lost round 3
+PLAYER 1: lost round 3
 PLAYER 3: Placing greasy in the back of the deck
 PLAYER 3: Round ends
 PLAYER 4: Eats 1 chips
@@ -140,10 +140,10 @@ PLAYER 2: discards King of Diamonds at random
 PLAYER 3: hand Queen of Hearts 6 of Diamonds 
 PLAYER 3: discards Queen of Hearts at random
 PLAYER 6: lost round 4
-PLAYER 3: lost round 4
-PLAYER 1: lost round 4
 PLAYER 2: lost round 4
 PLAYER 5: lost round 4
+PLAYER 3: lost round 4
+PLAYER 1: lost round 4
 PLAYER 4: Placing greasy in the back of the deck
 PLAYER 4: Round ends
 PLAYER 5: Eats 3 chips
@@ -178,11 +178,11 @@ PLAYER 3: hand 10 of Spades 6 of Diamonds
 PLAYER 3: discards 6 of Diamonds at random
 PLAYER 4: hand Ace of Clubs 4 of Diamonds 
 PLAYER 4: discards 4 of Diamonds at random
-PLAYER 1: lost round 5
 PLAYER 3: lost round 5
+PLAYER 6: lost round 5
 PLAYER 2: lost round 5
 PLAYER 4: lost round 5
-PLAYER 6: lost round 5
+PLAYER 1: lost round 5
 PLAYER 5: Placing greasy in the back of the deck
 PLAYER 5: Round ends
 PLAYER 6: Eats 4 chips
@@ -212,10 +212,10 @@ PLAYER 2: hand King of Diamonds 6 of Spades
 PLAYER 2: discards 6 of Spades at random
 PLAYER 3: hand (10 of Spades, Ace of Spades) <> Greasy card is Ace of Hearts
 PLAYER 3: wins round 6
-PLAYER 1: lost round 6
 PLAYER 5: lost round 6
 PLAYER 4: lost round 6
 PLAYER 2: lost round 6
+PLAYER 1: lost round 6
 PLAYER 6: Placing greasy in the back of the deck
 PLAYER 6: Round ends
 PLAYER 1: Eats 2 chips
